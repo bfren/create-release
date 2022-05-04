@@ -1,15 +1,9 @@
 name: 'Create Release'
-description: 'Create a GitHub Release'
+description: 'Create a GitHub release from a PR'
 branding:
   icon: 'package'
   color: 'green'
 inputs:
-  name:
-    description: "Release Name"
-    required: true
-  tag_name:
-    description: "Tag Name"
-    required: true
   token:
     description: "Github Token"
     required: true
@@ -17,7 +11,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ github.repository }}
-    - ${{ inputs.name }}
-    - ${{ inputs.tag_name }}
     - ${{ inputs.token }}
+    - ${{ github.repository }}
+    - ${{ github.event.pull_request.title }}
