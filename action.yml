@@ -5,12 +5,18 @@ branding:
   color: 'green'
 inputs:
   token:
-    description: "Github Token"
+    description: "Github token (with release permissions)"
+    required: true
+  repo:
+    description: "Source repository"
+    required: true
+  pr_title:
+    description: "Pull Request title"
     required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.token }}
-    - ${{ github.repository }}
-    - ${{ github.event.pull_request.title }}
+    - ${{ inputs.repo }}
+    - ${{ inputs.pr_title }}
