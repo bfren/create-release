@@ -11,13 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     -
-      name: Get Pull Request Title
-      run: echo "PR_TITLE=${{ github.event.pull_request.title }}" >> $GITHUB_ENV
-      shell: bash
-    -
-      name: Create Release ${{ env.PR_TITLE }}
+      name: Create Release ${{ github.event.pull_request.title }}
       uses: bfren/create-release@main
       with:
         token: ${{ secrets.PAT }}
-        name: ${{ env.PR_TITLE }}
-        tag_name: ${{ env.PR_TITLE }}
