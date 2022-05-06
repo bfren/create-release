@@ -11,9 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     -
-      name: Create Release ${{ github.event.pull_request.title }}
+      name: Create Release
       uses: bfren/create-release@main
       with:
         token: ${{ secrets.PAT }}
-        repo: ${{ github.repository }}
-        pr_title: ${{ github.event.pull_request.title }}
