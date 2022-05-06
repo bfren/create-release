@@ -5,8 +5,8 @@ Create a GitHub release from a merged PR.
 ## Inputs
 
 - `token`: GitHub personal access token
-- `repo`: user and repository name, e.g. 'bfren/create-release'
-- `pr_title`: Pull Release title
+- `repo`: repository name, e.g. 'bfren/create-release' (defaults to github.repository)
+- `title`: release title (defaults to github.event.pull_request.title)
 
 ## Usage
 
@@ -30,8 +30,6 @@ jobs:
       uses: bfren/create-release@v1
       with:
         token: ${{ secrets.PAT }}
-        repo: ${{ github.repository }}
-        pr_title: ${{ github.event.pull_request.title }}
 ```
 
 ## Licence
