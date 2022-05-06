@@ -11,16 +11,16 @@ set -euo pipefail
   exit 1
 
 [[ -z "${3-}" ]] && \
-  echo "::error::You must pass the Pull Request title." && \
+  echo "::error::You must pass the title." && \
   exit 1
 
 TOKEN="${1}"
 REPO="${2}"
-PR_TITLE="${3}"
+TITLE="${3}"
 
 curl \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token ${TOKEN}" \
   "https://api.github.com/repos/${REPO}/releases" \
-  -d "{\"tag_name\":\"${PR_TITLE}\",\"target_commitish\":\"main\",\"name\":\"${PR_TITLE}\"}"
+  -d "{\"tag_name\":\"${TITLE}\",\"target_commitish\":\"main\",\"name\":\"${TITLE}\"}"
