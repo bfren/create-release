@@ -11,7 +11,7 @@ inputs:
     description: "Source repository"
     required: false
     default: ${{ github.repository }}
-  pr_title:
+  title:
     description: "Pull Request title"
     required: false
     default: ${{ github.event.pull_request.title }}
@@ -21,4 +21,4 @@ runs:
   args:
     - ${{ inputs.token }}
     - ${{ inputs.repo }}
-    - ${{ inputs.pr_title }}
+    - ${{ inputs.title }}
