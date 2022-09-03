@@ -11,6 +11,10 @@ inputs:
     description: "Source repository"
     required: false
     default: ${{ github.repository }}
+  repo:
+    description: "Source branch"
+    required: false
+    default: main
   title:
     description: "Pull Request title"
     required: false
@@ -21,4 +25,5 @@ runs:
   args:
     - ${{ inputs.token }}
     - ${{ inputs.repo }}
+    - ${{ inputs.branch }}
     - ${{ inputs.title }}
