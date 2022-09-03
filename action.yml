@@ -11,7 +11,7 @@ inputs:
     description: "Source repository"
     required: false
     default: ${{ github.repository }}
-  repo:
+  branch:
     description: "Source branch"
     required: false
     default: main
