@@ -22,10 +22,11 @@ TOKEN="${1}"
 REPO="${2}"
 BRANCH="${3}"
 TITLE="${4}"
+LATEST="${5:-true}"
 
 curl \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token ${TOKEN}" \
   "https://api.github.com/repos/${REPO}/releases" \
-  -d "{\"tag_name\":\"${TITLE}\",\"target_commitish\":\"${BRANCH}\",\"name\":\"${TITLE}\"}"
+  -d "{\"tag_name\":\"${TITLE}\",\"target_commitish\":\"${BRANCH}\",\"name\":\"${TITLE}\",\"make_latest\":\"${LATEST}\"}"
