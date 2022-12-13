@@ -8,6 +8,7 @@ Create a GitHub release from a merged PR.
 - `repo`: repository name, e.g. 'bfren/create-release' (defaults to `github.repository`)
 - `branch`: source branch, e.g. 'dev' (defaults to `main`)
 - `title`: release title (defaults to `github.event.pull_request.title`)
+- `make_latest`: whether or not this release is the 'latest' (defaults to `true`, other values `false` and `legacy`)
 
 ## Usage
 
