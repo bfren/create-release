@@ -19,6 +19,14 @@ inputs:
     description: "Pull Request title"
     required: false
     default: ${{ github.event.pull_request.title }}
+  prerelease:
+    description: "Whether or not this is a prelease"
+    required: false
+    default: false
+  latest:
+    description: "Whether or not this should be the latest release"
+    required: false
+    default: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -27,3 +35,5 @@ runs:
     - ${{ inputs.repo }}
     - ${{ inputs.branch }}
     - ${{ inputs.title }}
+    - ${{ inputs.prerelease }}
+    - ${{ inputs.latest }}
